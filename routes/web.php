@@ -16,8 +16,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-
-Route::get('/', 'ArticleController@index');
+Route::get('/', 'NanachiController@index');
+Route::get('article', 'ArticleController@index');
 Route::get('create', 'ArticleController@create');
 Route::post('create', 'ArticleController@store');
 Route::get('edit/{id}', 'ArticleController@edit');
