@@ -2,8 +2,32 @@
 
 namespace App\Http\Controllers;
 
+//最初からあった分
 use App\Models\Person;
 use Illuminate\Http\Request;
+
+//追記分
+use Mockery;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class PersonTest extends TestCase
+{
+    protected $personMock;
+
+    public function setUp(){
+        parent::setUp();
+        $this->personMock = Mockery::mock('App\Models\Person');        
+    }
+    
+    public function tearDown()
+    {
+        parent::tearDown();
+        Mockery::close();
+    }
+}
+
 
 class PersonController extends Controller
 {
